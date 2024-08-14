@@ -9,11 +9,9 @@ ArchivoCompra="Data/Pedido de compra (purchase.order) (1).xlsx"
 ArchivoVenta="Data/Pedido de venta(purchase.order) (1) .xlsx"
 ArchivoPrecio="Data/Precios.xlsx"
 
-#Obtener la fecha de hoy
-fecha_hoy = datetime.now().strftime('%Y-%m-%d')
 
 # Definir el nombre del archivo con la fecha de hoy
-output_file = f'Excel/Reporte_{fecha_hoy}.xlsx'
+output_file = f'Excel/Reporte.xlsx'
 
 # Importar los datos de ArchivoCompra
 df_compra = pd.read_excel(ArchivoCompra)
@@ -77,7 +75,7 @@ font_header = Font(bold=True, color="FFFFFF")  # Fuente blanca en negrita para e
 wb = load_workbook(output_file)
 ws = wb['POWER BI']
 
-table = Table(displayName='InventarioComparado', ref=ws.dimensions)
+table = Table(displayName='Tabla1', ref=ws.dimensions)
 
 # Asignar el estilo a la tabla
 style = TableStyleInfo(
